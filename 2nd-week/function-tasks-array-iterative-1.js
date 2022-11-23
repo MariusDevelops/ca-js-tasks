@@ -55,16 +55,37 @@ const people = [
   },
 ];
 console.groupCollapsed("1. Atspausdinkite visus žmones eilutėmis");
-/*
-  <name> <surname> - <sex> <age> <income> <married> <hasCar>
-  pvz.: 
-    Jonas Jonaitis - male 26 1200 false false
-  <name> <surname>: is <sex> of age <age>. Earns <income> is <married> and <hasCar>;
-  pvz.: 
-    Jonas Jonaitis - is male of age 26. Earns 1200$ is not married has no car.
-*/
+
 {
-  // ...sprendimas ir spausdinimas
+  function isPersonMarried(person) {
+    if (person.married === true) {
+      return "Yes";
+    } else {
+      return "No";
+    }
+  }
+
+  function personHasCar(person) {
+    if (person.hasCar === true) {
+      return "Yes";
+    } else {
+      return "No";
+    }
+  }
+
+  function printEverythingAboutPerson(person) {
+    console.log(
+      `Name: ${person.name}. Surname: ${person.surname}. Sex: ${
+        person.sex
+      }. Age: ${person.age}. Income: ${
+        person.income
+      }. Married: ${isPersonMarried(person)}. Has a car: ${personHasCar(
+        person
+      )}.`
+    );
+  }
+
+  people.forEach(printEverythingAboutPerson);
 }
 console.groupEnd();
 
@@ -72,7 +93,11 @@ console.groupCollapsed(
   "2. Atpausdinkite visus žmonių vardus ir pavardes, atskirtus brūkšneliu"
 );
 {
-  // ...sprendimas ir spausdinimas
+  function printNamesAndSurnames(person) {
+    console.log(`${person.name}-${person.surname}`);
+  }
+
+  people.forEach(printNamesAndSurnames);
 }
 console.groupEnd();
 
@@ -80,7 +105,21 @@ console.groupCollapsed(
   "3. Atspausdinkite visų žmonių vardus ir pavardes bei santuokos statusą"
 );
 {
-  // ...sprendimas ir spausdinimas
+  function isPersonMarried(person) {
+    if (person.married === true) {
+      return "Married";
+    } else {
+      return "Not Married";
+    }
+  }
+
+  function printNamesAndSurnames(person) {
+    console.log(
+      `${person.name} ${person.surname} - ${isPersonMarried(person)}`
+    );
+  }
+
+  people.forEach(printNamesAndSurnames);
 }
 console.groupEnd();
 
@@ -88,7 +127,13 @@ console.groupCollapsed(
   "4. Sukurtite masyvą su lytimis ir uždirbamu pinigų kiekiu, pagal pradinį žmonių masyvą"
 );
 {
-  // ...sprendimas ir spausdinimas
+  function incomeAndSex(person) {
+    return `${person.sex} ${person.income}`;
+  }
+
+  const getIncomeAndSex = people.map(incomeAndSex);
+
+  console.log(getIncomeAndSex);
 }
 console.groupEnd();
 
@@ -96,19 +141,37 @@ console.groupCollapsed(
   "5. Sukurtite masyvą su vardais, pavardėmis ir lytimi, pagal pradinį žmonių masyvą"
 );
 {
-  // ...sprendimas ir spausdinimas
+  function nameSurnameAndSex(person) {
+    return `Name: ${person.name}, Surname: ${person.surname}, Sex: ${person.sex}`;
+  }
+
+  const getNameSurnameAndSex = people.map(nameSurnameAndSex);
+
+  console.log(getNameSurnameAndSex);
 }
 console.groupEnd();
 
 console.groupCollapsed("6. Atspausdinkite visus vyrus");
 {
-  // ...sprendimas ir spausdinimas
+  function isMan(person) {
+    return person.sex === "male";
+  }
+
+  const man = people.filter(isMan);
+
+  console.log(man);
 }
 console.groupEnd();
 
 console.groupCollapsed("7. Atspausdinkite visas moteris");
 {
-  // ...sprendimas ir spausdinimas
+  function isWoman(person) {
+    return person.sex === "female";
+  }
+
+  const woman = people.filter(isWoman);
+
+  console.log(woman);
 }
 console.groupEnd();
 
@@ -116,7 +179,13 @@ console.groupCollapsed(
   "8. Atspausdinkite žmonių vardus ir pavardes, kurie turi mašinas"
 );
 {
-  // ...sprendimas ir spausdinimas
+  function hasCar(person) {
+    return person.hasCar === true;
+  }
+
+  const theyHaveCars = people.filter(hasCar);
+
+  console.log(theyHaveCars);
 }
 console.groupEnd();
 
