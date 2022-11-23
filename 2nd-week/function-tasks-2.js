@@ -276,7 +276,7 @@ console.log("---");
   function filterNaturals(arr) {
     const resultArr = [];
     for (let i = 0; i < arr.length; i += 1) {
-      if (arr[i] % 1 !== 0) {
+      if (arr[i] % 1 === 0) {
         // resultArr[i] = arr[i];
         resultArr.push(arr[i]);
       }
@@ -431,12 +431,11 @@ console.log("---");
   function arrMax(arr) {
     let largestNumber = [0];
     for (let i = 0; i < arr.length; i += 1) {
-      if (arr[i] > largestNumber[i]) {
-        largestNumber[i] = arr[i];
+      if (arr[i] > largestNumber) {
+        largestNumber = arr[i];
       }
-      largestNumber.push(largestNumber[i]);
     }
-    return largestNumber[arr.length - 1];
+    return largestNumber;
   }
 
   console.log({
@@ -455,12 +454,11 @@ console.log("---");
   function arrMin(arr) {
     let smallestNumber = [0];
     for (let i = 0; i < arr.length; i += 1) {
-      if (arr[i] < smallestNumber[i]) {
-        smallestNumber[i] = arr[i];
+      if (arr[i] < smallestNumber) {
+        smallestNumber = arr[i];
       }
-      smallestNumber.push(smallestNumber[i]);
     }
-    return smallestNumber[arr.length - 1];
+    return smallestNumber;
   }
 
   console.log({
