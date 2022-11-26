@@ -72,11 +72,7 @@ console.log("---");
   function powerArrBy2(arr) {
     const resultArr = [];
     for (let i = 0; i < arr.length; i += 1) {
-      if (arr[i] < 0) {
-        resultArr[i] = -(arr[i] ** 2);
-      } else {
-        resultArr[i] = arr[i] ** 2;
-      }
+      resultArr[i] = arr[i] ** 2;
     }
     return resultArr;
   }
@@ -252,11 +248,7 @@ console.log("---");
   function powArrElementsByIndex(arr) {
     const resultArr = [];
     for (let i = 0; i < arr.length; i += 1) {
-      if (arr[i] < 0) {
-        resultArr[i] = -(arr[i] ** i);
-      } else {
-        resultArr[i] = arr[i] ** i;
-      }
+      resultArr[i] = arr[i] ** i;
     }
     return resultArr;
   }
@@ -298,10 +290,21 @@ console.group(
 );
 console.log("---");
 {
+  function round(number) {
+    const remainder = number % 1;
+    const whole = number - remainder;
+
+    if (remainder <= -0.5) return whole - 1;
+    else if (remainder >= 0.5) return whole + 1;
+
+    return whole;
+  }
+
   function absArrElements(arr) {
     const resultArr = [];
     for (let i = 0; i < arr.length; i += 1) {
-      resultArr[i] = Math.round(arr[i]);
+      resultArr[i] = round(arr[i]);
+      // resultArr[i] = Math.round(arr[i]);
       // resultArr.push(arr[i]);
     }
     return resultArr;
