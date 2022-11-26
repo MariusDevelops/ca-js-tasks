@@ -148,13 +148,12 @@ console.log();
 console.group("10. Atrinkti tik natūralių skaičių masyvą");
 console.log("---");
 {
-  function filterNaturals(arr) {
-    // Jūsų kodas
-  }
-  // console.log({
-  //   numbers,
-  //   result: filterNaturals(numbers)
-  // });
+  const filterNaturals = numbers.filter((number) => number % 1 === 0);
+
+  console.log({
+    numbers,
+    result: filterNaturals,
+  });
 }
 console.log("---");
 console.groupEnd();
@@ -165,13 +164,12 @@ console.group(
 );
 console.log("---");
 {
-  function absArrElements(arr) {
-    // Jūsų kodas
-  }
-  // console.log({
-  //   numbers,
-  //   result: absArrElements(numbers)
-  // });
+  const absArrElements = numbers.map((number) => Math.round(number));
+
+  console.log({
+    numbers,
+    result: absArrElements,
+  });
 }
 console.log("---");
 console.groupEnd();
@@ -179,13 +177,12 @@ console.groupEnd();
 console.group("12. Atrinkti kas antrą elementą");
 console.log("---");
 {
-  function filterEverySecond(arr) {
-    //  Jūsų kodas
-  }
-  // console.log({
-  //   numbers,
-  //   result: filterEverySecond(numbers)
-  // });
+  const filterEverySecond = numbers.filter((_, index) => index % 2 === 0);
+
+  console.log({
+    numbers,
+    result: filterEverySecond,
+  });
 }
 console.log("---");
 console.groupEnd();
@@ -193,13 +190,12 @@ console.groupEnd();
 console.group("13. Atrinkti kas penktą elementą");
 console.log("---");
 {
-  function filterEveryFifth(arr) {
-    //  Jūsų kodas
-  }
-  // console.log({
-  //   numbers,
-  //   result: filterEveryFifth(numbers)
-  // });
+  const filterEveryFifth = numbers.filter((_, index) => index % 5 === 0);
+
+  console.log({
+    numbers,
+    result: filterEveryFifth,
+  });
 }
 console.log("---");
 console.groupEnd();
@@ -209,11 +205,9 @@ console.group(
 );
 console.log("---");
 {
-  function printArr(arr) {
-    // ... code
-  }
-  printArr(numbers);
+  numbers.forEach((number, index) => console.log(`[${index}] => ${number}`));
 }
+
 console.log("---");
 console.groupEnd();
 
@@ -222,14 +216,12 @@ console.group(
 );
 console.log("---");
 {
-  function sumArr(arr) {
-    // Jūsų kodas
-  }
+  const sumArr = numbers.reduce((sum, number) => sum + number, 0);
 
-  // console.log({
-  //   numbers,
-  //   result: sumArr(numbers)
-  // });
+  console.log({
+    numbers,
+    result: sumArr,
+  });
 }
 console.log("---");
 console.groupEnd();
@@ -239,14 +231,13 @@ console.group(
 );
 console.log("---");
 {
-  function avgArr(arr) {
-    // Jūsų kodas
-  }
-
-  // console.log({
-  //   numbers,
-  //   result: avgArr(numbers)
-  // });
+  const avgArr = numbers
+    .reduce((sum, number) => sum + number / numbers.length, 0)
+    .toFixed(2);
+  console.log({
+    numbers,
+    result: Number(avgArr),
+  });
 }
 console.log("---");
 console.groupEnd();
@@ -256,14 +247,24 @@ console.group(
 );
 console.log("---");
 {
-  function arrMax(arr) {
-    //  Jūsų kodas
-  }
+  {
+    let maxNumber = 0;
+    numbers.forEach((number) => {
+      if (maxNumber < number) {
+        maxNumber = number;
+      }
+    });
 
-  // console.log({
-  //   numbers,
-  //   result: arrMax(numbers)
-  // });
+    console.log(`The largest number in the array: ${maxNumber}`);
+  }
+  {
+    const arrMax = numbers.reduce((sum, number) => Math.max(sum, number), 0);
+
+    console.log({
+      numbers,
+      result: arrMax,
+    });
+  }
 }
 console.log("---");
 console.groupEnd();
@@ -273,14 +274,24 @@ console.group(
 );
 console.log("---");
 {
-  function arrMin(arr) {
-    //  Jūsų kodas
-  }
+  {
+    let minNumber = 0;
+    numbers.forEach((number) => {
+      if (minNumber > number) {
+        minNumber = number;
+      }
+    });
 
-  // console.log({
-  //   numbers,
-  //   result: arrMin(numbers)
-  // });
+    console.log(`The smallest number in the array: ${minNumber}`);
+  }
+  {
+    const arrMin = numbers.reduce((sum, number) => Math.min(sum, number), 0);
+
+    console.log({
+      numbers,
+      result: arrMin,
+    });
+  }
 }
 console.log("---");
 console.groupEnd();
