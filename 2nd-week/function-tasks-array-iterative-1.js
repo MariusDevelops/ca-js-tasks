@@ -179,13 +179,18 @@ console.groupCollapsed(
   "8. Atspausdinkite žmonių vardus ir pavardes, kurie turi mašinas"
 );
 {
+  function onlyNamesAndSurnames(person) {
+    return `${person.name} ${person.surname}`;
+  }
+
   function hasCar(person) {
     return person.hasCar === true;
   }
 
   const theyHaveCars = people.filter(hasCar);
+  const printNamesHasCars = theyHaveCars.map(onlyNamesAndSurnames);
 
-  console.log(theyHaveCars);
+  console.log(printNamesHasCars);
 }
 console.groupEnd();
 
