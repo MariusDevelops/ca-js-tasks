@@ -4,13 +4,13 @@ console.group(
 {
   // Funkcijos deklaravimas
   function printCapital(str) {
-    console.log(str.toUpperCase());
+    return console.log(str.toUpperCase());
   }
 
   console.log("---");
   console.log("abcd");
   printCapital("abcd");
-  console.log("AAAA");
+  console.log("aaa");
   printCapital("AAAA");
   console.log("aBcD");
   printCapital("aBcD");
@@ -25,7 +25,7 @@ console.group(
 {
   // Funkcijos deklaravimas
   function printLower(str) {
-    console.log(str.toLowerCase());
+    return console.log(str.toLowerCase());
   }
 
   console.log("---");
@@ -46,11 +46,11 @@ console.group(
 {
   // Funkcijos deklaravimas
   function printFirstLetter(str) {
-    console.log(str.slice(0, 1));
+    return console.log(str.slice(0, 1));
   }
 
   console.log("---");
-  console.log("ABCD");
+  console.log("abcd");
   printFirstLetter("abcd");
   console.log("AAAA");
   printFirstLetter("AAAA");
@@ -67,7 +67,7 @@ console.group(
 {
   // Funkcijos deklaravimas
   function printLastLetter(str) {
-    console.log(str.slice(-1));
+    return console.log(str.slice(-1));
   }
 
   console.log("---");
@@ -118,16 +118,17 @@ console.group(
   "6. Sukurkite funkciją, kuri grąžina simbolių darinio raidžių skaičių"
 );
 {
-  function getDoubleLetterCount(str) {
-    // code ...
+  function getLetterCount(str) {
+    return str.length;
   }
-  // console.log('---');
-  // console.log({
-  //   'labas': getDoubleLetterCount('labas'),
-  //   'kranas': getDoubleLetterCount('kranas'),
-  //   'kebabas': getDoubleLetterCount('kebabas'),
-  // })
-  // console.log('---');
+
+  console.log("---");
+  console.log({
+    labas: getLetterCount("labas"),
+    kranas: getLetterCount("kranas"),
+    kebabas: getLetterCount("kebabas"),
+  });
+  console.log("---");
 }
 console.groupEnd();
 console.log();
@@ -137,15 +138,16 @@ console.group(
 );
 {
   function getDoubleLetterCount(str) {
-    // code ...
+    return str.length * 2;
   }
-  // console.log('---');
-  // console.log({
-  //   'labas': getDoubleLetterCount('labas'),
-  //   'kranas': getDoubleLetterCount('kranas'),
-  //   'kebabas': getDoubleLetterCount('kebabas'),
-  // })
-  // console.log('---');
+
+  console.log("---");
+  console.log({
+    labas: getDoubleLetterCount("labas"),
+    kranas: getDoubleLetterCount("kranas"),
+    kebabas: getDoubleLetterCount("kebabas"),
+  });
+  console.log("---");
 }
 console.groupEnd();
 console.log();
@@ -155,15 +157,16 @@ console.group(
 );
 {
   function getArgsLetterSum(a, b) {
-    // code ...
+    return a.length + b.length;
   }
-  // console.log('---');
-  // console.log({
-  //   'labas, abc': getArgsLetterSum('labas', 'abc'),
-  //   'kranas, jonas': getArgsLetterSum('kranas', 'jonas'),
-  //   'kebabas, kefyras': getArgsLetterSum('kebabas', 'kefyras'),
-  // })
-  // console.log('---');
+
+  console.log("---");
+  console.log({
+    "labas, abc": getArgsLetterSum("labas", "abc"),
+    "kranas, jonas": getArgsLetterSum("kranas", "jonas"),
+    "kebabas, kefyras": getArgsLetterSum("kebabas", "kefyras"),
+  });
+  console.log("---");
 }
 console.groupEnd();
 console.log();
@@ -173,15 +176,16 @@ console.group(
 );
 {
   function containsLetterA(str) {
-    // code ...
+    return str.includes("a");
   }
-  // console.log('---');
-  // console.log({
-  //   'labas': containsLetterA('labas'),
-  //   'kempė': containsLetterA('kempė'),
-  //   'Finakolė': containsLetterA('Finakolė'),
-  // })
-  // console.log('---');
+
+  console.log("---");
+  console.log({
+    labas: containsLetterA("labas"),
+    kempė: containsLetterA("kempė"),
+    Finakolė: containsLetterA("Finakolė"),
+  });
+  console.log("---");
 }
 console.groupEnd();
 console.log();
@@ -191,15 +195,16 @@ console.group(
 );
 {
   function containsLetter(str, letter) {
-    // code ...
+    return str.includes(letter);
   }
-  // console.log('---');
-  // console.log({
-  //   'labas, a': containsLetter('labas', 'a'),
-  //   'kempė, a': containsLetter('kempė', 'a'),
-  //   'Finakolė, u': containsLetter('Finakolė', 'u'),
-  // })
-  // console.log('---');
+
+  console.log("---");
+  console.log({
+    "labas, a": containsLetter("labas", "a"),
+    "kempė, a": containsLetter("kempė", "a"),
+    "Finakolė, u": containsLetter("Finakolė", "u"),
+  });
+  console.log("---");
 }
 console.groupEnd();
 console.log();
