@@ -191,7 +191,9 @@ console.groupEnd();
 
 console.groupCollapsed("9. Atspausdinkite žmones kurie yra susituokę");
 {
-  // ...sprendimas ir spausdinimas
+  const marriedPeople = people.filter(({ married }) => married === true);
+
+  console.log(marriedPeople);
 }
 console.groupEnd();
 
@@ -199,7 +201,9 @@ console.groupCollapsed(
   "10. Sukurkite objektą, kuriame būtų apskaičiuotas vairuojančių žmonių kiekis pagal lytį"
 );
 {
-  // ...sprendimas ir spausdinimas
+  const peopleWithCars = people.filter(({ hasCar }) => hasCar === true).length;
+
+  console.log(peopleWithCars);
 }
 console.groupEnd();
 
@@ -207,7 +211,22 @@ console.groupCollapsed(
   '11. Performuokite žmonių masyvą, jog kiekvieno žmogaus savybė "income", taptų "salary"'
 );
 {
-  // ...sprendimas ir spausdinimas
+  const refactorPeopleList = people.map(
+    ({ name, surname, sex, age, income, married, hasCar }) => {
+      const salary = income;
+      return {
+        name,
+        surname,
+        sex,
+        age,
+        salary,
+        married,
+        hasCar,
+      };
+    }
+  );
+
+  console.log(refactorPeopleList);
 }
 console.groupEnd();
 
@@ -215,7 +234,16 @@ console.groupCollapsed(
   "12. Suformuokite žmonių masyvą iš objektų, kuriuose nebūtų lyties, vardo ir pavardės"
 );
 {
-  // ...sprendimas ir spausdinimas
+  const refactorPeopleList = people.map(({ age, income, married, hasCar }) => {
+    return {
+      age,
+      income,
+      married,
+      hasCar,
+    };
+  });
+
+  console.log(refactorPeopleList);
 }
 console.groupEnd();
 
@@ -223,6 +251,20 @@ console.groupCollapsed(
   '13. Suformuokite žmonių masyvą  iš objektų, kuriuose "name" ir "surname" savybės, būtų pakeistos "fullname" savybe'
 );
 {
-  // ...sprendimas ir spausdinimas
+  const refactorPeopleList = people.map(
+    ({ name, surname, sex, age, income, married, hasCar }) => {
+      const fullName = `${name} ${surname}`;
+      return {
+        fullName,
+        sex,
+        age,
+        income,
+        married,
+        hasCar,
+      };
+    }
+  );
+
+  console.log(refactorPeopleList);
 }
 console.groupEnd();
