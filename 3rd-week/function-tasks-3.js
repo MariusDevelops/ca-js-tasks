@@ -123,15 +123,16 @@ console.group(
 );
 {
   function indexOfLetterA(str) {
-    // code ...
+    return str.indexOf("a");
   }
-  // console.log('---');
-  // console.log({
-  //   'labas': lastIndexOfLetterA('labas'),
-  //   'kempės': lastIndexOfLetterA('kempės'),
-  //   '123123': lastIndexOfLetterA('123123'),
-  // })
-  // console.log('---');
+
+  console.log("---");
+  console.log({
+    labas: indexOfLetterA("labas"),
+    kempės: indexOfLetterA("kempės"),
+    123123: indexOfLetterA("123123"),
+  });
+  console.log("---");
 }
 console.groupEnd();
 console.log();
@@ -141,15 +142,16 @@ console.group(
 );
 {
   function indexOfLetter(str, searchLetter) {
-    // code ...
+    return str.indexOf(searchLetter);
   }
-  // console.log('---');
-  // console.log({
-  //   'labas, a': lastIndexOfLetter('labas', 'a'),
-  //   'kempės, k': lastIndexOfLetter('kempės', 'k'),
-  //   '123123, z': lastIndexOfLetter('123123', 'z'),
-  // })
-  // console.log('---');
+
+  console.log("---");
+  console.log({
+    "labas, a": indexOfLetter("labas", "a"),
+    "kempės, k": indexOfLetter("kempės", "k"),
+    "123123, z": indexOfLetter("123123", "z"),
+  });
+  console.log("---");
 }
 console.groupEnd();
 console.log();
@@ -159,15 +161,23 @@ console.group(
 );
 {
   function indexesOfLetterA(str) {
-    // code ...
+    const indexes = [];
+    for (let i = 0; i < str.length; i += 1) {
+      if (str[i] === "a") {
+        indexes.push(i);
+      }
+    }
+    return indexes;
   }
-  // console.log('---');
-  // console.log({
-  //   'labas': indexesOfLetterA('labas'),
-  //   'kempės': indexesOfLetterA('kempės'),
-  //   '123123': indexesOfLetterA('123123'),
-  // })
-  // console.log('---');
+
+  console.log("---");
+  console.log({
+    labas: indexesOfLetterA("labas"),
+    kempės: indexesOfLetterA("kempės"),
+    123123: indexesOfLetterA("123123"),
+    kėdės: indexesOfLetterA("kėdės"),
+  });
+  console.log("---");
 }
 console.groupEnd();
 console.log();
@@ -176,31 +186,24 @@ console.group(
   "20. Sukurkite funkciją, kuri grąžina indeksų masyvą su visais vartotojo įvestos raidės pasikartojimais žodyje"
 );
 {
-  const letterEVariations = "eęė";
-
-  const additionalLTChecks = {
-    a: "aą",
-    i: "iį",
-    e: letterEVariations,
-    ę: letterEVariations,
-    ė: letterEVariations,
-    u: "uūų",
-  };
-
   function indexesOfLetter(str, searchLetter) {
-    const search = additionalLTChecks[searchLetter] ?? searchLetter;
-    const letterRegex = new RegExp(search);
-    const foundResults = str.search(letterRegex);
-    console.log(foundResults);
-    // code ...
+    const indexes = [];
+    for (let i = 0; i < str.length; i += 1) {
+      if (str[i] === searchLetter) {
+        indexes.push(i);
+      }
+    }
+    return indexes;
   }
-  // console.log('---');
-  // console.log({
-  //   'labas, a': indexesOfLetter('labas', 'a'),
-  //   'kempės, m': indexesOfLetter('kempės', 'm'),
-  //   '123123, 2': indexesOfLetter('123123', '2'),
-  // })
-  // console.log('---');
+
+  console.log("---");
+  console.log({
+    "labas, a": indexesOfLetter("labas", "a"),
+    "kempės, m": indexesOfLetter("kempės", "m"),
+    "123123, 2": indexesOfLetter("123123", "2"),
+    "kėdės, ė": indexesOfLetter("kėdės", "ė"),
+  });
+  console.log("---");
 }
 console.groupEnd();
 console.log();
