@@ -8,6 +8,10 @@ console.groupCollapsed("1. - https://edabit.com/challenge/ZngT4zDckDugt2JGY");
       this.weight = weight;
     }
 
+    // constructor(...params) {
+    //   [this.name, this.age, this.height, this.weight] = params;
+    // }
+
     getAge() {
       return (this.age = `${this.name} is age ${this.age}`);
     }
@@ -34,13 +38,13 @@ console.groupEnd();
 console.groupCollapsed("2. - https://edabit.com/challenge/yxKoCKemzacK6PECM");
 {
   class Calculator {
-    num1;
-    num2;
+    // num1;
+    // num2;
 
-    constructor(num1, num2) {
-      this.num1 = num1;
-      this.num2 = num2;
-    }
+    // constructor(num1, num2) {
+    //   this.num1 = num1;
+    //   this.num2 = num2;
+    // }
 
     add(num1, num2) {
       return num1 + num2;
@@ -77,11 +81,22 @@ console.groupEnd();
 console.groupCollapsed("3. - https://edabit.com/challenge/kGLhgwGaLJsCMS7wS");
 {
   class Employee {
+    firstname;
+    lastname;
+
     constructor(firstname, lastname) {
       this.firstname = firstname;
       this.lastname = lastname;
-      this.fullname = `${firstname} ${lastname}`;
-      this.email = `${firstname}.${lastname}@company.com`.toLowerCase();
+      // this.fullname = `${firstname} ${lastname}`;
+      // this.email = `${firstname}.${lastname}@company.com`.toLowerCase();
+    }
+
+    get fullname() {
+      return `${this.firstname} ${this.lastname}`;
+    }
+
+    get email() {
+      return `${this.firstname}.${this.lastname}@company.com`.toLowerCase();
     }
   }
 
