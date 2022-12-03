@@ -210,7 +210,28 @@ console.groupEnd();
 
 console.groupCollapsed("6. - https://edabit.com/challenge/qNMtrtizgssAQqP2b");
 {
-  // ... code
+  class Name {
+    constructor(fname, lname) {
+      this.fname = fname[0].toUpperCase() + fname.slice(1).toLowerCase();
+      this.lname = lname[0].toUpperCase() + lname.slice(1).toLowerCase();
+      this.fullname = `${this.fname} ${this.lname}`;
+      this.initials = `${this.fname[0]}.${this.lname[0]}`;
+    }
+  }
+
+  const a1 = new Name("john", "SMITH");
+  const a2 = new Name("sARah", "fRolliE");
+
+  console.log([
+    a1.fname + " <-- " + "John",
+    a1.lname + " <-- " + "Smith",
+    a1.fullname + " <-- " + "John Smith",
+    a1.initials + " <-- " + "J.S",
+    a2.fname + " <-- " + "Sarah",
+    a2.lname + " <-- " + "Frollie",
+    a2.fullname + " <-- " + "Sarah Frollie",
+    a2.initials + " <-- " + "S.F",
+  ]);
 }
 console.groupEnd();
 
