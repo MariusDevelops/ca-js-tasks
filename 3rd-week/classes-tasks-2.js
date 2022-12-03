@@ -127,13 +127,84 @@ console.groupEnd();
 
 console.groupCollapsed("4. - https://edabit.com/challenge/iwdZiFucR5wkQsFHu");
 {
-  // ... code
+  class Person {
+    constructor(name, age) {
+      this.name = name;
+      this.age = age;
+    }
+
+    compareAge(other) {
+      if (this.age > other.age) {
+        return `${other.name} is younger than me.`;
+      } else if (this.age < other.age) {
+        return `${other.name} is older than me.`;
+      } else {
+        return `${other.name} is the same age as me.`;
+      }
+    }
+  }
+
+  const p1 = new Person("Samuel", 24);
+  const p2 = new Person("Joel", 36);
+  const p3 = new Person("Lily", 24);
+
+  console.log([
+    p1.compareAge(p2) + " <-- " + "Joel is older than me.",
+    p1.compareAge(p3) + " <-- " + "Lily is the same age as me.",
+    p2.compareAge(p1) + " <-- " + "Samuel is younger than me.",
+    p2.compareAge(p3) + " <-- " + "Lily is younger than me.",
+    p3.compareAge(p1) + " <-- " + "Samuel is the same age as me.",
+    p3.compareAge(p2) + " <-- " + "Joel is older than me.",
+  ]);
 }
 console.groupEnd();
 
 console.groupCollapsed("5. - https://edabit.com/challenge/Hgb38yhWGwJCMHbRQ");
 {
-  // ... code
+  class Rectangle {
+    constructor(sideA, sideB) {
+      this.sideA = sideA;
+      this.sideB = sideB;
+    }
+    getArea() {
+      return this.sideA * this.sideB;
+    }
+    getPerimeter() {
+      return (this.sideA + this.sideB) * 2;
+    }
+  }
+
+  class Circle {
+    constructor(radius) {
+      this.radius = radius;
+    }
+    getArea() {
+      return Math.PI * this.radius ** 2;
+      // return Math.PI * Math.pow(this.radius, 2);
+    }
+    getPerimeter() {
+      return 2 * Math.PI * this.radius;
+    }
+  }
+
+  function round(number) {
+    var factor = Math.pow(10, 5);
+    return Math.round(number * factor) / factor;
+  }
+  // let randomInt = round(Math.floor(Math.random() * Math.floor(200)));
+
+  const circo = new Circle(20);
+  const circo1 = new Circle(2);
+  const circo2 = new Circle(4.4);
+
+  console.log([
+    round(circo.getArea()) + " <-- " + "1256.63706",
+    round(circo.getPerimeter()) + " <-- " + "125.66371",
+    round(circo1.getArea()) + " <-- " + "12.56637",
+    round(circo1.getPerimeter()) + " <-- " + "12.56637",
+    round(circo2.getArea()) + " <-- " + "60.82123",
+    round(circo2.getPerimeter()) + " <-- " + "27.64602",
+  ]);
 }
 console.groupEnd();
 
