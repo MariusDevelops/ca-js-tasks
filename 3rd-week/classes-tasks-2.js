@@ -430,12 +430,72 @@ console.groupEnd();
 
 console.groupCollapsed("9. - https://edabit.com/challenge/7PA4jhWqDYJT4ixLp");
 {
-  // ... code
+  class User {
+    static userCount = 0;
+
+    constructor() {
+      this.username = ++User.userCount;
+    }
+  }
+
+  console.log(User.userCount, 0);
+
+  const u1 = new User("johnsmith10");
+  console.log(User.userCount, 1);
+  console.log(u1.username, "johnsmith10");
+
+  const u2 = new User("marysue1989");
+  console.log(User.userCount, 2);
+  console.log(u2.username, "marysue1989");
+
+  const u3 = new User("milan_rodrick");
+  console.log(User.userCount, 3);
+  console.log(u3.username, "milan_rodrick");
+
+  const user4 = new User("joshua_senoron");
+  console.log(User.userCount, 4);
+  console.log(user4.username, "joshua_senoron");
+
+  const user10 = new User("LuckyLootCrate123");
+  console.log(User.userCount, 5);
+  console.log(user10.username, "LuckyLootCrate123");
 }
 console.groupEnd();
 
 console.groupCollapsed("10. - https://edabit.com/challenge/s5Sz2ovKsvtGxNGgn");
 {
-  // ... code
+  class Book {
+    constructor(title, author) {
+      this.title = title;
+      this.author = author;
+    }
+
+    getTitle() {
+      return `Title: ${this.title}`;
+    }
+
+    getAuthor() {
+      return `author: ${this.author}`;
+    }
+  }
+
+  const PP = new Book("Pride and Prejudice", "Jane Austen");
+  const H = new Book("Hamlet", "William Shakespeare");
+  const WP = new Book("War and Peace", "Leo Tolstoy");
+
+  console.log(PP.title, "Pride and Prejudice");
+  console.log(PP.author, "Jane Austen");
+  console.log(PP.getTitle(), "Title: Pride and Prejudice");
+  console.log(PP.getAuthor(), "Author: Jane Austen");
+
+  console.log(H.title, "Hamlet");
+  console.log(H.author, "William Shakespeare");
+  console.log(H.getTitle(), "Title: Hamlet");
+  console.log(H.getAuthor(), "Author: William Shakespeare");
+
+  console.log(WP.title, "War and Peace");
+  console.log(WP.author, "Leo Tolstoy");
+  console.log(WP.getTitle(), "Title: War and Peace");
+  console.log(WP.getAuthor(), "Author: Leo Tolstoy");
 }
 console.groupEnd();
