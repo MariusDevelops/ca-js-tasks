@@ -205,13 +205,26 @@ console.groupCollapsed(
   "1. Atspausdinti visus Informatikos fakulteto studentus"
 );
 {
-  // ... sprendimas ir spausdinimas
+  students.forEach(
+    (student) => {
+      if (student.faculty === "Informatikos fakultetas") {
+        return console.log(student);
+      }
+    }
+    // student.faculty === "Informatikos fakultetas"
+    //   ? console.log(student)
+    //     : console.log("studentai ne iš informatikos fakulteto")
+  );
 }
 console.groupEnd();
 
 console.groupCollapsed("2. Atspausdinti visus Chemijos fakulteto studentus");
 {
-  // ... sprendimas ir spausdinimas
+  students.forEach((student) => {
+    if (student.faculty === "Chemijos fakultetas") {
+      return console.log(student);
+    }
+  });
 }
 console.groupEnd();
 
@@ -219,31 +232,51 @@ console.groupCollapsed(
   "3. Atspausdinti visus Elektros ir elektronikos fakulteto studentus"
 );
 {
-  // ... sprendimas ir spausdinimas
+  students.forEach((student) => {
+    if (student.faculty === "Elektros ir elektronikos fakultetas") {
+      return console.log(student);
+    }
+  });
 }
 console.groupEnd();
 
 console.groupCollapsed("4. Atspausdinti tik pirmo kurso studentus");
 {
-  // ... sprendimas ir spausdinimas
+  students.forEach((student) => {
+    if (student.course === 1) {
+      return console.log(student);
+    }
+  });
 }
 console.groupEnd();
 
 console.groupCollapsed("5. Atspausdinti tik antro kurso studentus");
 {
-  // ... sprendimas ir spausdinimas
+  students.forEach((student) => {
+    if (student.course === 2) {
+      return console.log(student);
+    }
+  });
 }
 console.groupEnd();
 
 console.groupCollapsed("6. Atspausdinti tik trečio kurso studentus");
 {
-  // ... sprendimas ir spausdinimas
+  students.forEach((student) =>
+    student.faculty === 3
+      ? console.log(student)
+      : console.log("ne trečio kurso studentai")
+  );
 }
 console.groupEnd();
 
 console.groupCollapsed("7. Atspausdinti tik ketvirto kurso studentus");
 {
-  // ... sprendimas ir spausdinimas
+  students.forEach((student) =>
+    student.faculty === 4
+      ? console.log(student)
+      : console.log("ne ketvirto kurso studentai")
+  );
 }
 console.groupEnd();
 
@@ -251,8 +284,8 @@ console.groupCollapsed(
   "8. Iš students masyvo atrinkti ir atspausdinti visų studentų vidurkius"
 );
 {
-  // ... sprendimas ir spausdinimas
 }
+console.groupEnd();
 
 console.groupCollapsed(
   "9. Atspausdinti visų Informatikos fakulteto studentų vidurkius"
