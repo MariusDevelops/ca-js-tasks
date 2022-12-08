@@ -315,7 +315,40 @@ console.groupCollapsed(
       console.log("student semester avg: " + studSemesterAvg);
     });
   }
+
   console.log("------------- OR ---------------");
+
+  // iterate all students
+  students.map((student) => {
+    // console.log(student);
+    // go throuugh each student modules and print weighted avg marks
+
+    let sumCredits = 0;
+    let weightedAvgMarks = 0;
+    student.modules.forEach((module) => {
+      // print modules
+      // console.log(module);
+
+      // print sum of credits
+      const credits = module.credits;
+      sumCredits += credits;
+
+      // print weighted avg marks
+      weightedAvgMarks +=
+        (module.marks.reduce((sum, el) => sum + el, 0) * credits) /
+        module.marks.length;
+    });
+
+    // console.log("credits sum: " + sumCredits);
+    // console.log("weighted marks avg: " + weightedAvgMarks);
+
+    // print student semester avg grade
+    let studSemesterAvg = Math.round(weightedAvgMarks / sumCredits);
+    console.log(`Final grade: ${student.name} - ${studSemesterAvg}`);
+  });
+
+  console.log("------------- OR ---------------");
+
   {
     for (let j = 0; j < students.length; j += 1) {
       const student = students[j];
