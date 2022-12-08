@@ -284,6 +284,48 @@ console.groupCollapsed(
   "8. Iš students masyvo atrinkti ir atspausdinti visų studentų vidurkius"
 );
 {
+  for (let j = 0; j < students.length; j += 1) {
+    const student = students[j];
+    let weightedModuleAvgSum = 0;
+    let creditSum = 0;
+
+    for (let i = 0; i < student.modules.length; i += 1) {
+      const module = student.modules[i];
+      let moduleSum = 0;
+
+      for (let o = 0; o < module.marks.length; o++) {
+        const mark = module.marks[o];
+        moduleSum += mark;
+      }
+
+      const moduleAvg = moduleSum / module.marks.length;
+      const moduleCredits = module.credits;
+      weightedModuleAvgSum += moduleAvg * moduleCredits;
+      creditSum += moduleCredits;
+    }
+
+    const studentAvg = weightedModuleAvgSum / creditSum;
+    console.log(Number(studentAvg.toFixed(2)));
+  }
+
+  ///////////////// Morning Code ///////////////////////
+  // const student1 = students[0];
+  // let weightedModuleAvgSum = 0;
+  // let creditSum = 0;
+  // for (let i = 0; i < student1.modules.length; i += 1) {
+  //   const module = student1.modules[i];
+  //   let moduleSum = 0;
+  //   for (let o = 0; o < module.marks.length; o++) {
+  //     const mark = module.marks[o];
+  //     moduleSum += mark;
+  //   }
+  //   const moduleAvg = moduleSum / module.marks.length;
+  //   const moduleCredits = module.credits;
+  //   weightedModuleAvgSum += moduleAvg * moduleCredits;
+  //   creditSum += moduleCredits;
+  // }
+  // const studentAvg = weightedModuleAvgSum / creditSum;
+  // console.log(studentAvg);
 }
 console.groupEnd();
 
