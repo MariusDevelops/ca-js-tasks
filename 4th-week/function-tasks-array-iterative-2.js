@@ -400,7 +400,27 @@ console.groupCollapsed(
   "9. Atspausdinti visų Informatikos fakulteto studentų vidurkius"
 );
 {
-  // ... sprendimas ir spausdinimas
+  students.filter((student) => {
+    if (student.faculty === "Informatikos fakultetas") {
+      let sumCredits = 0;
+      let weightedAvgMarks = 0;
+      student.modules.forEach((module) => {
+        const credits = module.credits;
+        sumCredits += credits;
+
+        weightedAvgMarks +=
+          (module.marks.reduce((sum, el) => sum + el, 0) * credits) /
+          module.marks.length;
+      });
+
+      let studSemesterAvg = weightedAvgMarks / sumCredits;
+      console.log(
+        `Average semester grade: ${student.name} ${
+          student.surname
+        } - ${studSemesterAvg.toFixed(2)}`
+      );
+    }
+  });
 }
 console.groupEnd();
 
@@ -408,7 +428,27 @@ console.groupCollapsed(
   "10. Atspausdinti visų Chemijos fakulteto studentų vidurkius"
 );
 {
-  // ... sprendimas ir spausdinimas
+  students.filter((student) => {
+    if (student.faculty === "Chemijos fakultetas") {
+      let sumCredits = 0;
+      let weightedAvgMarks = 0;
+      student.modules.forEach((module) => {
+        const credits = module.credits;
+        sumCredits += credits;
+
+        weightedAvgMarks +=
+          (module.marks.reduce((sum, el) => sum + el, 0) * credits) /
+          module.marks.length;
+      });
+
+      let studSemesterAvg = weightedAvgMarks / sumCredits;
+      console.log(
+        `Average semester grade: ${student.name} ${
+          student.surname
+        } - ${studSemesterAvg.toFixed(2)}`
+      );
+    }
+  });
 }
 console.groupEnd();
 
@@ -416,6 +456,26 @@ console.groupCollapsed(
   "11. Atspausdinti visų Elektros ir elektronikos fakulteto studentų vidurkius"
 );
 {
-  // ... sprendimas ir spausdinimas
+  students.filter((student) => {
+    if (student.faculty === "Elektros ir elektronikos fakultetas") {
+      let sumCredits = 0;
+      let weightedAvgMarks = 0;
+      student.modules.forEach((module) => {
+        const credits = module.credits;
+        sumCredits += credits;
+
+        weightedAvgMarks +=
+          (module.marks.reduce((sum, el) => sum + el, 0) * credits) /
+          module.marks.length;
+      });
+
+      let studSemesterAvg = weightedAvgMarks / sumCredits;
+      console.log(
+        `Average semester grade: ${student.name} ${
+          student.surname
+        } - ${studSemesterAvg.toFixed(2)}`
+      );
+    }
+  });
 }
 console.groupEnd();
