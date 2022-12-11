@@ -99,15 +99,15 @@ console.group(
 );
 {
   function replaceSpaceWithDash(str) {
-    // code ...
+    return str.replaceAll(" ", "-");
   }
-  // console.log('---');
-  // console.log({
-  //   'viens du trys': replaceSpaceWithDash('viens du trys'),
-  //   'as tave myliu': replaceSpaceWithDash('as tave myliu'),
-  //   'Bairis seniuk': replaceSpaceWithDash('Bairis seniuk'),
-  // })
-  // console.log('---');
+  console.log("---");
+  console.log({
+    "viens du trys": replaceSpaceWithDash("viens du trys"),
+    "as tave myliu": replaceSpaceWithDash("as tave myliu"),
+    "Bairis seniuk": replaceSpaceWithDash("Bairis seniuk"),
+  });
+  console.log("---");
 }
 console.groupEnd();
 console.log();
@@ -117,15 +117,18 @@ console.group(
 );
 {
   function capitalize(str) {
-    // code ...
+    const finalSentence = str.replace(/(^\w{1})|(\s+\w{1})/g, (letter) =>
+      letter.toUpperCase()
+    );
+    return finalSentence;
   }
-  // console.log('---');
-  // console.log({
-  //   'viens du trys': capitalize('viens du trys'),
-  //   'as tave myliu': capitalize('as tave myliu'),
-  //   'Bairis seniuk': capitalize('Bairis seniuk'),
-  // })
-  // console.log('---');
+  console.log("---");
+  console.log({
+    "viens du trys": capitalize("viens du trys"),
+    "as tave myliu": capitalize("as tave myliu"),
+    "Bairis seniuk": capitalize("Bairis seniuk"),
+  });
+  console.log("---");
 }
 console.groupEnd();
 console.log();
