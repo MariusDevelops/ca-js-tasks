@@ -44,15 +44,15 @@ console.group(
 );
 {
   function removeAllOccurencesOfLetterA(str) {
-    // code ...
+    return str.replaceAll("a", "");
   }
-  // console.log('---');
-  // console.log({
-  //   'labas': removeAllOccurencesOfLetterA('labas'),
-  //   'kempiniukas': removeAllOccurencesOfLetterA('kempiniukas'),
-  //   '123123': removeAllOccurencesOfLetterA('123123'),
-  // })
-  // console.log('---');
+  console.log("---");
+  console.log({
+    labas: removeAllOccurencesOfLetterA("labas"),
+    kempiniukas: removeAllOccurencesOfLetterA("kempiniukas"),
+    123123: removeAllOccurencesOfLetterA("123123"),
+  });
+  console.log("---");
 }
 console.groupEnd();
 console.log();
@@ -62,15 +62,15 @@ console.group(
 );
 {
   function removeAllOccurencesOfLetter(str, letter) {
-    // code ...
+    return str.replaceAll(letter, "");
   }
-  // console.log('---');
-  // console.log({
-  //   'labas, a': removeAllOccurencesOfLetter('labas', 'a'),
-  //   'kempiniukas, i': removeAllOccurencesOfLetter('kempiniukas', 'i'),
-  //   '123123, 3': removeAllOccurencesOfLetter('123123', '3'),
-  // })
-  // console.log('---');
+  console.log("---");
+  console.log({
+    "labas, a": removeAllOccurencesOfLetter("labas", "a"),
+    "kempiniukas, i": removeAllOccurencesOfLetter("kempiniukas", "i"),
+    "123123, 3": removeAllOccurencesOfLetter("123123", "3"),
+  });
+  console.log("---");
 }
 console.groupEnd();
 console.log();
@@ -83,12 +83,13 @@ console.group(
 );
 {
   function filterLetters(str, lettersToRemove) {
-    // code ...
+    const regexFromMyArray = new RegExp(lettersToRemove.join("|"), "gi");
+    return str.replaceAll(regexFromMyArray, "");
   }
-  // console.log('---');
-  // const str = filterLetters('Brangakmienio paveikslas', ['a', 'i']);
-  // console.log(str);
-  // console.log('---');
+  console.log("---");
+  const str = filterLetters("Brangakmienio paveikslas", ["a", "i"]);
+  console.log("Brangakmienio paveikslas --->" + str);
+  console.log("---");
 }
 console.groupEnd();
 console.log();
