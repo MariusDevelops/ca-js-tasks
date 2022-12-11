@@ -3,15 +3,15 @@ console.group(
 );
 {
   function removeFirstLetterA(str) {
-    // code ...
+    return str.replace("a", "");
   }
-  // console.log('---');
-  // console.log({
-  //   'labas': removeFirstLetterA('labas'),
-  //   'kempiniukas': removeFirstLetterA('kempiniukas'),
-  //   '123123': removeFirstLetterA('123123'),
-  // })
-  // console.log('---');
+  console.log("---");
+  console.log({
+    labas: removeFirstLetterA("labas"),
+    kempiniukas: removeFirstLetterA("kempiniukas"),
+    123123: removeFirstLetterA("123123"),
+  });
+  console.log("---");
 }
 console.groupEnd();
 console.log();
@@ -21,15 +21,20 @@ console.group(
 );
 {
   function removeLastLetterA(str) {
-    // code ...
+    const index = str.lastIndexOf("a");
+    if (isNaN(str)) {
+      return str.slice(0, index) + str.slice(index + 1, str.length);
+    } else {
+      return str;
+    }
   }
-  // console.log('---');
-  // console.log({
-  //   'labas': removeLastLetterA('labas'),
-  //   'kempiniukas': removeLastLetterA('kempiniukas'),
-  //   '123123': removeLastLetterA('123123'),
-  // })
-  // console.log('---');
+  console.log("---");
+  console.log({
+    labas: removeLastLetterA("labas"),
+    kempiniukas: removeLastLetterA("kempiniukas"),
+    123123: removeLastLetterA("123123"),
+  });
+  console.log("---");
 }
 console.groupEnd();
 console.log();
