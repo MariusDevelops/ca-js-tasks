@@ -3,26 +3,33 @@ console.group(
 );
 {
   function strReverse(str) {
-    // code ...
+    return str.split("").reverse().join("");
   }
-  // console.log('---');
-  // strReverse('viens du trys');
-  // strReverse('as tave myliu');
-  // strReverse('Bairis seniuk');
-  // console.log('---');
+  console.log("---");
+  console.log({
+    "viens du trys": strReverse("viens du trys"),
+    "as tave myliu": strReverse("as tave myliu"),
+    "Bairis seniuk": strReverse("Bairis seniuk"),
+  });
+  console.log("---");
 }
 console.groupEnd();
-console.log();
 
-// 29. Sukurkite funkciją, kuri grąžina <true>, jeigu žodis yra palindromas (taip pat skaitosi iš abiejų pusių)
+console.group(
+  "29. Sukurkite funkciją, kuri grąžina <true>, jeigu žodis yra palindromas (taip pat skaitosi iš abiejų pusių)"
+);
 //  mama -> false
 //  mamam -> true
 //  123321 -> true
 //  123456 -> false
-console.group(
-  "29. Sukurkite funkciją, kuri grąžina <true>, jeigu žodis yra palindromas (taip pat skaitosi iš abiejų pusių)"
-);
 {
+  function palindrome(str) {
+    const re = /[\W_]/g;
+    const lowRegStr = str.toLowerCase().replace(re, "");
+    const reverseStr = lowRegStr.split("").reverse().join("");
+    return reverseStr === lowRegStr;
+  }
+
   function isPalyndrome(str) {
     let i = 0;
     let k = str.length - 1;
@@ -33,14 +40,22 @@ console.group(
     }
     return true;
   }
-  // console.log('---');
-  // console.log({
-  //   'mama': isPalyndrome('mama'),
-  //   'mamam': isPalyndrome('mamam'),
-  //   '123321': isPalyndrome('123321'),
-  //   '123456': isPalyndrome('123456'),
-  // })
-  // console.log('---');
+  console.log("---");
+  console.log({
+    "A man, a plan, a canal. Panama": palindrome(
+      "A man, a plan, a canal. Panama"
+    ),
+  });
+  console.log("---");
+
+  console.log("---");
+  console.log({
+    mama: isPalyndrome("mama"),
+    mamam: isPalyndrome("mamam"),
+    123321: isPalyndrome("123321"),
+    123456: isPalyndrome("123456"),
+  });
+  console.log("---");
 }
 console.groupEnd();
 console.log();
