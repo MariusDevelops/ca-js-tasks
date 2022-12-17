@@ -130,42 +130,40 @@ console.group("30. Sukurkite funkciją, kuri taiso pastraipos klaidas");
 console.groupEnd();
 console.log();
 
-// 31. Sukurkite funkciją, kuri pirmu parametru priima sakinį ir sudeda atskirus sakinio žodžius į masyvą:
-//  labas, aš esu grybas -> ['labas', 'aš', 'esu', 'grybas']
 console.group(
   "31. Sukurkite funkciją, kuri pirmu parametru priima sakinį ir sudeda atskirus sakinio žodžius į masyvą"
 );
+//  labas, aš esu grybas -> ['labas', 'aš', 'esu', 'grybas']
 {
   function splitSentence(sentence) {
-    // code ...
+    return sentence.split(" ");
   }
-  // console.log('---');
-  // console.log({
-  //   'Labas aš Jonas': splitSentence('Labas aš Jonas'),
-  //   'Kėgliai yra gerai': splitSentence('Kėgliai yra gerai'),
-  // })
-  // console.log('---');
+  console.log("---");
+  console.log({
+    "Labas aš Jonas": splitSentence("Labas aš Jonas"),
+    "Kėgliai yra gerai": splitSentence("Kėgliai yra gerai"),
+  });
+  console.log("---");
 }
 console.groupEnd();
 console.log();
 
-// 32. Sukurkite funkciją, kuri pirmu parametru priimą <string>'ą, o antruoju skiriklį
-//  Ši funkcija turi grąžinti masyvą sudarytą iš atskirtų dalių:
-//  explode('Man patinka sniegas', ' ');  -> ['man', 'patinka', 'sniegas'];
-//  explode('home/about/13', '/');        -> ['home', 'about', '13'];
 console.group(
   "32. Sukurkite funkciją, kuri pirmu parametru priimą <string>'ą, o antruoju skiriklį"
 );
+//  Ši funkcija turi grąžinti masyvą sudarytą iš atskirtų dalių:
+//  explode('Man patinka sniegas', ' ');  -> ['man', 'patinka', 'sniegas'];
+//  explode('home/about/13', '/');        -> ['home', 'about', '13'];
 {
   function explode(str, separator) {
-    // code ...
+    return str.split(separator);
   }
-  // console.log('---');
-  // console.log({
-  //   "'Man patinka sniegas', ' '": explode('Man patinka sniegas', ' '),
-  //   "'home/about/13', '/'": explode('home/about/13', '/'),
-  // })
-  // console.log('---');
+  console.log("---");
+  console.log({
+    "'Man patinka sniegas', ' '": explode("Man patinka sniegas", " "),
+    "'home/about/13', '/'": explode("home/about/13", "/"),
+  });
+  console.log("---");
 }
 console.groupEnd();
 console.log();
