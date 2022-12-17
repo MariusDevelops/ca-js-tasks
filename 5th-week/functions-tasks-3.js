@@ -60,53 +60,72 @@ console.group(
 console.groupEnd();
 console.log();
 
-// 30. Sukurkite funkciją, kuri taiso pastraipos klaidas:
+console.group("30. Sukurkite funkciją, kuri taiso pastraipos klaidas");
 //  Pirma sakinio raidė didžioji
 //  Po skiriamojo ženklo tarpas, o prieš skiriamajį ženklą nėra tarpo (skiriamieji ženklai: .,!?)
 //  Bet kokį kiekį tapų pakeičia vienu tarpu
 //    mėgstu pieną , bet medų nelabai.labanakt. -> Mėgstu pieną, bet medų nelabai. Labanakt.
-console.group("30. Sukurkite funkciją, kuri taiso pastraipos klaidas");
 {
-  function capitalizeFirstLetter(str) {
-    // code ...
-  }
+  // function capitalizeFirstLetter(str) {
+  //   // code ...
+  // }
 
-  function splitIntoSentences(paragraph) {
-    /*
-      2.1 Atskirti pagal sakinio baigimo ženklus ir juos įsiminti
-      2.2 Pašalinti tuščius tarpus iš kairės ir dešinės
-      2.3 grąžinti objektą su dviem masyvais:
-      {
-        sentences: [sentence1, sentence2, ... , sentenceN],
-        separator: [ '.', '?', ... , '!'],
-      }
-    */
-  }
+  // function splitIntoSentences(paragraph) {
+  //   /*
+  //     2.1 Atskirti pagal sakinio baigimo ženklus ir juos įsiminti
+  //     2.2 Pašalinti tuščius tarpus iš kairės ir dešinės
+  //     2.3 grąžinti objektą su dviem masyvais:
+  //     {
+  //       sentences: [sentence1, sentence2, ... , sentenceN],
+  //       separator: [ '.', '?', ... , '!'],
+  //     }
+  //   */
+  // }
 
-  function reduceEmptySpaces(str) {
-    // Jūsų sugalvota logika, kaip šalinti tarpus prieš kablelį ir kelis tarpus iš eilės
-  }
+  // function reduceEmptySpaces(str) {
+  //   // Jūsų sugalvota logika, kaip šalinti tarpus prieš kablelį ir kelis tarpus iš eilės
+  // }
 
-  // 1.
-  function fixParagraph(paragraph) {
-    /*
-      2. Pirmiausiai suskirstome į sakinius, naudojant splitIntoSentences: 
-            string  ->  {
-                          sentences: [sentence1, sentence2, ... , sentenceN],
-                          separator: [ '.', '?', ... , '!'],
-                        }
-      3. Redaguoti kiekvieną sakinį, naudojant funkciją reduceEmptySpaces
-      4. Redaguoti kiekvieną sakinį, naudojant funkciją capitalizeFirstLetter
-      5. Sujungti sakinius su atitinkamais sakinių skiriamaisiais/baigiamaisiais ženklais
-      6. Grąžinti rezultatą.
-    */
-  }
+  // // 1.
+  // function fixParagraph(paragraph) {
+  //   /*
+  //     2. Pirmiausiai suskirstome į sakinius, naudojant splitIntoSentences:
+  //           string  ->  {
+  //                         sentences: [sentence1, sentence2, ... , sentenceN],
+  //                         separator: [ '.', '?', ... , '!'],
+  //                       }
+  //     3. Redaguoti kiekvieną sakinį, naudojant funkciją reduceEmptySpaces
+  //     4. Redaguoti kiekvieną sakinį, naudojant funkciją capitalizeFirstLetter
+  //     5. Sujungti sakinius su atitinkamais sakinių skiriamaisiais/baigiamaisiais ženklais
+  //     6. Grąžinti rezultatą.
+  //   */
+  // }
 
   // const paragraph = '    labas , as jonas . Tave      vadina Kęstu? Taip ir žinojau  !    ';
   // const fixedParagraph = fixParagraph(paragraph);
   // console.log(paragraph);
   // console.log(fixedParagraph);
   // console.log('---');
+
+  const capitalizeFirstLetter = (word) => word[0].toUpperCase() + word.slice(1);
+
+  const fixParagraph = (paragraph) =>
+    paragraph
+      .split(/([.?!])/)
+      .slice(0, -1)
+      .map((sentence) => sentence.trim())
+      .map(capitalizeFirstLetter)
+      .join("")
+      .replaceAll(/\s+/g, " ")
+      .replaceAll(" ,", ",")
+      .replaceAll(/([.?!,])([^\s])/g, "$1 $2");
+
+  const paragraph =
+    "    labas , as jonas     . Tave      vadina Kęstu         ,taip? Taip ir žinojau  !";
+  const fixedParagraph = fixParagraph(paragraph);
+
+  console.log(paragraph);
+  console.log(fixedParagraph);
 }
 console.groupEnd();
 console.log();
