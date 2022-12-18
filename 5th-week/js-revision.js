@@ -2,18 +2,18 @@ const peopleData = [
   {
     name: "Serbentautas",
     surname: "Bordiūras",
-    age: 15,
+    age: 12,
     sex: "male",
     height: 1.3,
-    weight: 45,
+    weight: 63,
   },
   {
     name: "Joburė",
     surname: "Vaitkutytė",
     age: 9,
     sex: "female",
-    height: 1.55,
-    weight: 63,
+    height: 1.25,
+    weight: 53,
   },
   {
     name: "Verlas",
@@ -26,10 +26,10 @@ const peopleData = [
   {
     name: "Fanta",
     surname: "Burbulienė",
-    age: 32,
+    age: 18,
     sex: "female",
     height: 1.55,
-    weight: 35,
+    weight: 81,
   },
   {
     name: "Ežvyra",
@@ -45,7 +45,7 @@ const peopleData = [
     age: 72,
     sex: "male",
     height: 2.1,
-    weight: 92,
+    weight: 60,
   },
   {
     name: "Vabalas",
@@ -53,7 +53,7 @@ const peopleData = [
     age: 17,
     sex: "male",
     height: 1.72,
-    weight: 79,
+    weight: 60,
   },
   {
     name: "Lakštingala",
@@ -155,12 +155,93 @@ console.group(
 console.groupEnd();
 
 // ------------------------------------ 2 Dalis ------------------------------------
-// 0. Pasinaudojant 1 dalies elementų masyvu, sukurti Person prototipų(Class) masyvą:
-//     Person klasėje:
-//     - sukurti vidinį metodą: getBMI();     // suskaičiuoja kūno masės indeksą
-//     - sukurti vidinį metodą: toString();   // atspausdina žmogų su esamom savybėm
-// 1. Atrinkti moteris, kuriuos jaunesnės nei 20 metų ir svoris didesnis nei 70kg
-// 2. Atrinkti vyrus, kurie vyresni nei 25 metai ir KMI mažesnis nei 18,5
-// 3. Atrinkti vaikus, su antsvoriu (KMI > 30)
-// 4. Atrinkti pensininkus, su antsvoriu (KMI > 30)
-// 5. Atrinkti visus, kieno KMI nepatenka į rėžius [18.5; 25]
+class Person {
+  name;
+  surname;
+  age;
+  sex;
+  height;
+  weight;
+
+  constructor({ name, surname, age, sex, height, weight }) {
+    this.name = name;
+    this.surname = surname;
+    this.age = age;
+    this.sex = sex;
+    this.height = height;
+    this.weight = weight;
+  }
+
+  get getKMI() {
+    return (this.weight / this.height ** 2).toFixed(2);
+  }
+
+  toString() {
+    return `Full name: ${this.name} ${this.surname}, age: ${this.age}, sex: ${this.sex}, height: ${this.height}, weight: ${this.weight}`;
+  }
+}
+
+let people;
+
+console.group(
+  "0. Pasinaudojant 1 dalies elementų masyvu, sukurti Person prototipų(Class) masyvą: \nPerson klasėje: \n- sukurti vidinį metodą: getKMI();     // suskaičiuoja kūno masės indeksą, \n- sukurti vidinį metodą: toString();   // atspausdina žmogų su esamom savybėm."
+);
+{
+  people = peopleData.map((person) => new Person(person));
+  console.table(Person);
+
+  people.forEach((person) =>
+    console.log(`KMI: ${person.name} - ${person.getKMI}`)
+  );
+  people.forEach((person) => console.log(person.toString()));
+}
+console.groupEnd();
+
+console.group(
+  "1. Atrinkti moteris, kuriuos jaunesnės nei 20 metų ir svoris didesnis nei 70kg"
+);
+{
+  const under20OverweightFemales = people.filter(
+    (person) => person.sex === "female" && person.age < 20 && person.weight > 70
+  );
+  console.table(under20OverweightFemales);
+}
+console.groupEnd();
+
+console.group(
+  "2. Atrinkti vyrus, kurie vyresni nei 25 metai ir KMI mažesnis nei 18,5"
+);
+{
+  const over25FitMales = people.filter(
+    (person) => person.sex === "male" && person.age > 25 && person.getKMI < 18.5
+  );
+  console.table(over25FitMales);
+}
+console.groupEnd();
+
+console.group("3. Atrinkti vaikus, su antsvoriu (KMI > 30)");
+{
+  const overweightKid = people.filter(
+    (person) => person.age <= 12 && person.getKMI > 30
+  );
+  console.table(overweightKid);
+}
+console.groupEnd();
+
+console.group("4. Atrinkti pensininkus, su antsvoriu (KMI > 30)");
+{
+  const overweightElderyPeople = people.filter(
+    (person) => person.age > 50 && person.getKMI > 30
+  );
+  console.table(overweightElderyPeople);
+}
+console.groupEnd();
+
+console.group("5. Atrinkti visus, kieno KMI nepatenka į rėžius [18.5; 25]");
+{
+  const less18More25KMI = people.filter(
+    (person) => person.getKMI < 18.5 || person.getKMI > 25
+  );
+  console.table(less18More25KMI);
+}
+console.groupEnd();
